@@ -64,7 +64,7 @@ gulp.task('css', function(){
 
 gulp.task('lint', function(){
 	return gulp.src(config.paths.js)
-			.pipe(eslint({config: 'eslint.config.json'}))
+			.pipe(eslint({configFile: 'eslint.config.json'}))
 			.pipe(eslint.format());
 });
 
