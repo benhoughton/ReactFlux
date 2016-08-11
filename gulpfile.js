@@ -14,6 +14,7 @@ var config = {
 	devBaseUrl: 'http://localhost',
 	paths: {
 		html: './src/*.html',
+		images: './src/images/*',
 		js: './src/**/*.js',
 		css: [
       		'node_modules/bootstrap/dist/css/bootstrap.min.css',
@@ -45,6 +46,15 @@ gulp.task('html', function() {
 		.pipe(connect.reload());
 });
 
+gulp.task('images', function() {
+	gulp.src(config.paths.images)
+		.pipe(gulp.dest(config.paths.dist + '/images'))
+		.pipe(connect.reload());
+
+	gulp.src('./src/favicon.ico')
+		.pipe(gulp.dest(config.paths.dist));
+});
+
 gulp.task('js', function() {
 	browserify(config.paths.mainJs)
 		.transform(reactify)
@@ -72,4 +82,4 @@ gulp.task('watch', function() {
 	gulp.watch(config.paths.js, ['js', 'lint']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'images', 'js', 'css', 'lint', 'open', 'watch']);
