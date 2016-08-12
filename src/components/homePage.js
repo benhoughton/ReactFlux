@@ -7,7 +7,7 @@ var Home = React.createClass({
     return (
       <div className="jumbotron">
         <h1>Pluralsight Administration</h1>
-        <p> Some text here </p>
+        <p> Some text here</p>
       </div>
     );
   }
