@@ -3,7 +3,16 @@
 var React = require('react');
 
 var About = React.createClass({
-  render: function(){
+
+    statics: {
+        willTransitionTo: function(transition, params, query, callback){
+            callback();
+        },
+        willTransitionFrom: function(transition, component){
+
+        }
+    },
+    render: function(){
     return (
         <div>
             <h1>About</h1>
